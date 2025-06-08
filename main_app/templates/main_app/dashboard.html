@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="dashboard-container">
+    <h1> Welcome {{ user.username }} </h1>
+    <p>Here you can manage your children and their milestones.</p>
+
+    <div class="children-container">
+        {% if children %}
+            <ul>
+                {% for child in children %}
+                    <li>
+                        {{ child.name }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No children found.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
