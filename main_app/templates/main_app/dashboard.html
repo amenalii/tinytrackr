@@ -10,7 +10,12 @@
             <ul>
                 {% for child in children %}
                     <li>
-                        {{ child.name }}
+                        {{ child.name }} - 
+                        {% if child.age == 1 %} 
+                            {{ child.age }} year old
+                        {% else %} 
+                            {{ child.age }} years old
+                        {% endif %}
                     </li>
                 {% endfor %}
             </ul>

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import date # Imprt date for comparison to ensure the date of birth is not in the future
 
 GENDER_CHOICES = [
     ('M', 'Male'),
@@ -16,6 +17,14 @@ class Child(models.Model):
     notes = models.TextField(blank=True, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    #Adding functio to determine child's age
+    # Migration not needed since database schema is not being changed. 
+    @property # Property decorator allows us to access this method like an attribute
+    def age(self):
+        today = date.today() 
+        dob = self.date_of_birth
+        return today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day)) 
+    
     def __str__(self):
         return self.name
 
@@ -30,3 +39,9 @@ class Activity(models.Model):
 
     def __str__(self):
         return f"{self.activity_type} - {self.child.name} on {self.date}"
+
+
+
+##################################################################################################################
+## RESORUCES
+# https://medium.com/@katheller/how-to-convert-birthdate-into-an-integer-and-count-age-in-django-c6fd403baa84
