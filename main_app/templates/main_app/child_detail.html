@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="child-detail-container">
+    <div class="child-header">
+        <h1>{{ child.name }}</h1>
+        <h2>
+            {% if child.age == 1 %}
+                {{ child.age }} year old
+            {% else %}
+                {{ child.age }} years old
+            {% endif %}
+        </h2>
+    </div>
+
+    <div class="child-details">
+        <h3>Details</h3>
+            <p>Date of Birth: {{ child.date_of_birth }}</p>
+            <p>Gender: {{ child.get_gender_display }}</p>
+            <p>Fun Facts: {{ child.notes }}</p>
+    </div>
+</div>
+
+<div class="activity-container">
+    <h2>Activities</h2>
+    {% regroup activities by date as newlist %}
+    {% for date in newlist %}
+        <h4>{{ date.grouper }}</h4> 
+        <table>
+            <thead>
+                <tr>
+                    <th>Activity Type</th>
+                    <th>Time</th>
+                    <th>Location</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for activity in date.list %}
+                    <tr>
+                        <td>{{ activity.activity_type }}</td>
+                        <td>{{ activity.time }}</td>
+                        <td>{{ activity.location }}</td>
+                        <td>{{ activity.description }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% comment %} need empty tag when using for loop to show folloeing message if no activities exist in the data {% endcomment %}
+    {% empty %}  
+        <p>No activities found for this child.</p>
+    {% endfor %}
+</div>
+
+{% endblock %}
+
+
+
+
+
+<!-- RESOURCES -->
+ {% comment %} https://www.w3schools.com/django/ref_tags_regroup.php {% endcomment %}
+ {% comment %} https://www.geeksforgeeks.org/for-empty-loop-django-template-tags/# {% endcomment %}
+ {% comment %} https://www.w3schools.com/html/html_tables.asp {% endcomment %}

@@ -9,14 +9,16 @@
         {% if children %}
             <ul>
                 {% for child in children %}
+                <a href="{% url 'child-detail' child.id %}">
                     <li>
                         {{ child.name }} - 
-                        {% if child.age == 1 %} 
-                            {{ child.age }} year old
-                        {% else %} 
-                            {{ child.age }} years old
-                        {% endif %}
+                            {% if child.age == 1 %} 
+                                {{ child.age }} year old
+                            {% else %} 
+                                {{ child.age }} years old
+                            {% endif %}
                     </li>
+                </a>
                 {% endfor %}
             </ul>
         {% else %}
