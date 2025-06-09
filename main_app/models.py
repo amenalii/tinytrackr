@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import date # Imprt date for comparison to ensure the date of birth is not in the future
+from django.urls import reverse
 
 GENDER_CHOICES = [
     ('M', 'Male'),
@@ -27,6 +28,9 @@ class Child(models.Model):
     
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('child-detail', kwargs={'child_id': self.id})
 
 
 class Activity(models.Model):

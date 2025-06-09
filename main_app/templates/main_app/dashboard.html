@@ -4,7 +4,9 @@
 <div class="dashboard-container">
     <h1> Welcome {{ user.username }} </h1>
     <p>Here you can manage your children and their milestones.</p>
-
+    <div class="add-child-button">
+        <a href="{% url 'add-child' %}" class="btn add-child"> New Kiddo </a>
+    </div>
     <div class="children-container">
         {% if children %}
             <ul>
