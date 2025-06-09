@@ -1,18 +1,20 @@
-{% extends 'base.html' %} 
-{% load static %} 
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
 <div class="form-header">
-  <h1>Add a New Kiddo</h1>
-  <p>Fill out the form below to add a new child to your dashboard.</p>
+  {% if child %}
+    <h1>Edit {{ child.name }}</h1>
+  {% else %}
+    <h1>Add a New Kiddo</h1>
+    <p>Fill out the form below to add a new child to your dashboard.</p>
+  {% endif %}
 </div>
 
 <form action="" method="post" class="form-container">
   {% csrf_token %}
-  <table>
-    {{ form.as_table }}
-  </table>
-  <button type="submit" class="btn submit">Submit!</button>
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn submit">Submit!</button>
 </form>
 
 {% endblock %}

@@ -20,6 +20,11 @@
             <p>Gender: {{ child.get_gender_display }}</p>
             <p>Fun Facts: {{ child.notes }}</p>
     </div>
+
+    <div class="child-actions">
+        <a href="{% url 'update-child' child.id %}" class="btn update">Edit Kiddo</a>
+        <a href="{% url 'delete-child' child.id %}" class="btn delete">Remove Kiddo</a>   
+    </div>
 </div>
 
 <div class="activity-container">

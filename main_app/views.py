@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Child, Activity
 
 # Create your views here.
@@ -22,6 +22,14 @@ class ChildCreate(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
+    
+class ChildUpdate(UpdateView):
+    model = Child
+    fields = ['name', 'date_of_birth', 'gender', 'notes'] 
+
+class ChildDelete(DeleteView):
+    model = Child
+    success_url = '/dashboard/'  
 
 ################################### RESOURCES ########################################
 # https://www.w3schools.com/django/django_queryset_orderby.php
