@@ -11,5 +11,10 @@ def dashboard(request):
 
 def child_detail(request, child_id):
     child = Child.objects.get(id=child_id, user=request.user)
-    activities = Activity.objects.filter(child=child)
+    activities = Activity.objects.filter(child=child).order_by('-date', '-time')  # Now Groups activities by date and time with most recent at the top
     return render(request, 'main_app/child_detail.html', {'child': child, 'activities': activities})
+
+
+
+################################### RESOURCES ########################################
+# https://www.w3schools.com/django/django_queryset_orderby.php
