@@ -1,8 +1,10 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
 
 <div class="form-header">
   {% if child %}
-    <h1>Edit {{ child.name }}</h1>
+    <h1>Edit {{ child.name }}'s Details</h1>
   {% else %}
     <h1>Add a New Kiddo</h1>
     <p>Fill out the form below to add a new child to your dashboard.</p>

@@ -27,6 +27,15 @@
     </div>
 </div>
 
+<div class="activity-form">
+    <h2>Add Activity</h2>
+    <form method="post" action="{% url 'add-activity' child.id %}" class="form-container" autocomplete="off">
+        {% csrf_token %}
+        {{ activity_form.as_table }}
+        <button type="submit" class="btn submit">Add Activity</button>
+    </form>
+</div>
+
 <div class="activity-container">
     <h2>Activities</h2>
     {% regroup activities by date as newlist %}
