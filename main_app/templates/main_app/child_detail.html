@@ -48,6 +48,7 @@
                     <th>Time</th>
                     <th>Location</th>
                     <th>Details</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +58,13 @@
                         <td>{{ activity.time }}</td>
                         <td>{{ activity.location }}</td>
                         <td>{{ activity.description }}</td>
+                        <td>
+                            <a href="{% url 'update-activity' activity.id %}" class="btn edit">Edit</a>
+                            <form method="post" action="{% url 'delete-activity' activity.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn delete">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
