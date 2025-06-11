@@ -45,6 +45,18 @@ class Activity(models.Model):
         return f"{self.activity_type} - {self.child.name} on {self.date}"
 
 
+class Journal(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateField(auto_now_add=True) # Automatically sets the date when the entry is created
+    title = models.CharField(max_length=200)
+    entry = models.TextField()
+
+    def __str__(self):
+        return self.title
+    
+    def get_absolute_url(self):
+        return reverse('journal-detail', kwargs={'journal_id': self.id})
+
 
 ##################################################################################################################
 ## RESORUCES

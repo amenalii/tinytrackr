@@ -15,6 +15,7 @@
           {% comment %} May rename later. {% endcomment %}
             <li><a href="{% url 'dashboard' %}">My Dashboard</a></li>
             <li><a href="{% url 'add-child' %}">New Kiddo</a></li>
+            <li><a href="{% url 'journal-list' %}">My Journal</a></li>
             <li>
               <form id="logout-form" method="post" action="{% url 'logout' %}">
                 {% csrf_token %}

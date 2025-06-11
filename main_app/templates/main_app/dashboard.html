@@ -27,5 +27,23 @@
             <p>No children found.</p>
         {% endif %}
     </div>
+
+    <div class="journal-container">
+        <h3>Journal</h3>
+        <div class="add-journal-button">
+            <a href="{% url 'add-journal' %}" class="btn add-journal"> New Journal Entry </a>
+        </div>
+        {% if journal_entries %}
+            <ul>
+                {% for entry in journal_entries %}
+                <li>
+                    <a href="{% url 'journal-detail' entry.id %}">{{ entry.title }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Jot down your daily thoughts</p>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

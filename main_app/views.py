@@ -1,16 +1,14 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Child, Activity
-from .forms import ActivityForm
+from .models import Child, Activity, Journal
+from .forms import ActivityForm, JournalForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
+from django.views.generic import ListView
 
-# Create your views here.
-# def home(request):
-#     return render(request, 'home.html')
 
 class Home(LoginView):
     template_name = 'home.html'
@@ -18,7 +16,11 @@ class Home(LoginView):
 @login_required
 def dashboard(request):
     children = Child.objects.filter(user=request.user)
-    return render(request, 'main_app/dashboard.html', {'children': children})
+    journal_entries = Journal.objects.filter(user=request.user).order_by('-date')
+    return render(request, 'main_app/dashboard.html', {
+        'children': children,
+        'journal_entries': journal_entries
+    })
 
 @login_required
 def child_detail(request, child_id):
@@ -86,9 +88,49 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'signup.html', context)
- 
 
- 
+@login_required
+def journal_detail(request, journal_id):
+    journal = Journal.objects.get(id=journal_id, user=request.user)
+    return render(request, 'journal/journal_detail.html', {'journal': journal})
+
+
+class JournalCreate(LoginRequiredMixin, CreateView):
+    model = Journal
+    form_class = JournalForm
+    template_name = 'journal/journal_form.html'  
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
+class JournalUpdate(LoginRequiredMixin, UpdateView):
+    model = Journal
+    form_class = JournalForm
+    template_name = 'journal/journal_form.html'  
+
+    def get_success_url(self):
+        return self.object.get_absolute_url()  
+
+
+class JournalDelete(LoginRequiredMixin, DeleteView):
+    model = Journal
+    
+    def get_success_url(self):
+        return '/dashboard/'  
+
+class JournalListView(LoginRequiredMixin, ListView):
+    model = Journal
+    template_name = 'journal/journal_list.html'  
+    context_object_name = 'journals' 
+    
+    def get_queryset(self):
+        return Journal.objects.filter(user=self.request.user).order_by('-date')  
+
+
+
+
+
 ################################### RESOURCES ########################################
 # https://www.w3schools.com/django/django_queryset_orderby.php
 # https://docs.djangoproject.com/en/5.2/topics/class-based-views/generic-editing/

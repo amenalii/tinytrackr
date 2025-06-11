@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<div class="form-header">
+  {% if journal.entry %}
+    <h1>Edit Journal Entry</h1>
+  {% else %}
+    <h1>Add a New entry</h1>
+  {% endif %}
+</div>
+
+<div class="form-container">
+  <form action="" method="post" class="form-container">
+    {% csrf_token %}
+    <table>
+      {{ form.as_table }}
+    </table>
+    <button type="submit" class="btn submit">Submit!</button>
+  </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="journal-container">
+    <h1>{{ journal.title }}</h1>
+    <p><strong>Date:</strong> {{ journal.date }}</p>
+    <p>{{ journal.entry }}</p>
+
+    <div class="journal-actions">
+        <a href="{% url 'update-journal' journal.id %}" class="btn edit">Edit</a>
+        <form action="{% url 'delete-journal' journal.id %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn delete">Delete</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

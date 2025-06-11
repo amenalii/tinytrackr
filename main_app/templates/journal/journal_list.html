@@ -1,0 +1,24 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<div class="page-header">
+  <h1>Journal Entries</h1>
+</div>
+
+<div class="journal-container">
+  <div>
+    <a href="{% url 'add-journal' %}">Add Journal Entry</a>
+  </div>
+  <div class="journal-list">
+    <ul class="journal-list">
+      {% for journal in object_list %}
+      <li class="journal-entry">
+        <strong>{{ journal.date }}</strong>:
+        <a href="{% url 'journal-detail' journal.pk %}">{{ journal.title }}</a>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

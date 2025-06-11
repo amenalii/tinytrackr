@@ -12,5 +12,10 @@ urlpatterns = [
     path('children/<int:pk>/activity/update/', views.ActivityUpdate.as_view(), name='update-activity'),
     path('children/<int:pk>/activity/delete/', views.ActivityDelete.as_view(), name='delete-activity'),
     path('accounts/signup/', views.signup, name='signup'),
+    path('journal/<int:journal_id>/', views.journal_detail, name='journal-detail'),
+    path('journal/add/', views.JournalCreate.as_view(), name='add-journal'),
+    path('journal/<int:pk>/update/', views.JournalUpdate.as_view(), name='update-journal'),
+    path('journal/<int:pk>/delete/', views.JournalDelete.as_view(), name='delete-journal'),
+    path('journal/', views.JournalListView.as_view(), name='journal-list'),
 
 ]

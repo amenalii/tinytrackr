@@ -1,5 +1,5 @@
 from django import forms
-from .models import Activity
+from .models import Activity, Journal
 
 
 class ActivityForm(forms.ModelForm):
@@ -12,4 +12,14 @@ class ActivityForm(forms.ModelForm):
             'activity_type': forms.TextInput(attrs={'placeholder': 'Enter activity type'}),
             'location': forms.TextInput(attrs={'placeholder': 'Enter location (optional)'}),
             'description': forms.Textarea(attrs={'placeholder': 'Enter description (optional)', 'rows': 2}),
+        }
+
+
+class JournalForm(forms.ModelForm):
+    class Meta:
+        model = Journal
+        fields = ['title', 'entry']
+        widgets = {
+            'title': forms.TextInput,
+            'entry': forms.Textarea(attrs={'rows': 10}),
         }
