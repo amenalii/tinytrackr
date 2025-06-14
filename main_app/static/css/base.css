@@ -1,5 +1,122 @@
-/* static/css/base.css  */
-
 body {
-  background-color: beige;
+  background: #EEAECA;
+  background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 50%, rgba(148, 155, 233, 1) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: nunito, sans-serif;
+  color: white
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.home-container h1 {
+  color: white;
+  font-size: 10rem;
+  margin-bottom: 1px;
+}
+
+.home-container p {
+  color: #fffefed4;
+  font-size: 1.5rem;
+  margin-top: 1px;
+  margin-bottom: 20px;
+}
+
+.auth-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.btn-grad {
+  background-image: linear-gradient(to right, #ee9ca7db 0%, #ffdde1de 51%, #ee9ca7 100%)
+}
+
+.btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.auth-forms {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100% vw;
+  border: solid 10px #fff;
+  border-radius: 50px;
+  padding: 75px;
+  background-color: rgba(255, 255, 255, 0.1);
+  max-width: 600px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.auth-forms input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.auth-forms button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.auth-forms p {
+  color: white;
+  font-size: 1rem;
+  margin-top: 25px;
+}
+
+.auth-forms a {
+  color: #2f09ee;
+  text-decoration: none;
+}
+
+.auth-forms a:hover {
+  text-decoration: underline;
+}
+
+.auth-forms label {
+  font-weight: bold;
+  color: white;
+  display: block;
+}
+
+.auth-forms p.error-message {
+  color: #e75480;
+  font-size: 1rem;
+  font-weight: bold;
 }

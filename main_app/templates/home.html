@@ -1,19 +1,25 @@
-{% extends 'base.html' %}
-{% block content %}
-<div class="container">
-    <h1> TinyTrackr </h1>
-    <p>Keep up with their busy little world — one sweet moment at a time.</p>
-</div>
-{% if not user.is_authenticated %}
-  <section>
-    <form action="{% url 'home' %}" method="post" class="login">
-      <h1>Login</h1>
-      {% csrf_token %} {{ form.as_p }}
-      <input type="hidden" name="next" value="{{ next }}" />
-      <button type="submit" class="btn submit">Login</button>
-    </form>
-  </section>
-{% endif %}
-
-
-{% endblock %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TinyTrackr</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+  </head>
+  <body>
+    <div class="home-container">
+      <h1>TinyTrackr</h1>
+      <p>Keep up with their busy little world — one activity at a time.</p>
+      <div class="auth-buttons">
+        <a href="{% url 'signin' %}" class="btn-grad">Login</a>
+        <a href="{% url 'signup' %}" class="btn-grad">Sign Up</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -17,5 +17,6 @@ urlpatterns = [
     path('journal/<int:pk>/update/', views.JournalUpdate.as_view(), name='update-journal'),
     path('journal/<int:pk>/delete/', views.JournalDelete.as_view(), name='delete-journal'),
     path('journal/', views.JournalListView.as_view(), name='journal-list'),
+    path('signin/', views.SignIn.as_view(), name='signin'),
 
 ]

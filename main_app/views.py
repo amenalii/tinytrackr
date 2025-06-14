@@ -13,6 +13,9 @@ from django.views.generic import ListView
 class Home(LoginView):
     template_name = 'home.html'
 
+class SignIn(LoginView):
+    template_name = 'signin.html'
+
 @login_required
 def dashboard(request):
     children = Child.objects.filter(user=request.user)

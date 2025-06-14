@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+
+<body>
+  <div class="auth-forms">
+    <h1>Login</h1>
+    <form action="{% url 'home' %}" method="post" class="login">
+      {% csrf_token %} {{ form.as_p }}
+      <input type="hidden" name="next" value="{{ next }}" />
+      <button type="submit" class="btn-grad">Login</button>
+    </form>
+    <p>
+      Don't have an account?
+      <a href="{% url 'signup' %}">Sign-up</a>
+    </p>
+  </div>
+</body>
+
+{% endblock %}
