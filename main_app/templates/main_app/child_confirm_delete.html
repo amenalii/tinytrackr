@@ -1,19 +1,25 @@
-{% extends 'base.html' %}  
+{% extends 'base.html' %} 
 {% load static %} 
 {% block content %}
 
-<div class="page-header">
+<div class="delete-container">
   <h1>Remove Kiddo?</h1>
+
+  <h2>
+    Are you sure you want to delete <strong>{{ child.name }}'s</strong> profile?
+  </h2>
+  <p>
+    All of {{ child.name }}'s data will be deleted. This action cannot be
+    undone.
+  </p>
+
+  <div class="actions">
+    <form action="" method="post" class="form">
+      {% csrf_token %}
+      <a href="{% url 'child-detail' child.id %}" class="btn cancel">Cancel</a>
+      <button type="submit" class="btn delete">Yes - Delete!</button>
+    </form>
+  </div>
 </div>
-
-<h2>Are you sure you want to delete {{ child.name }}'s profile?</h2>
-<p>All of {{ child.name }}'s data will be deleted. This action cannot be undone.</p>
-
-
-<form action="" method="post" class="form">
-  {% csrf_token %}
-  <a href="{% url 'child-detail' child.id %}">Cancel</a>
-  <button type="submit" class="btn danger">Yes - Delete!</button>
-</form>
 
 {% endblock %}

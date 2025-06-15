@@ -3,11 +3,11 @@
 
 
 <div class="journal-container">
+    <p><strong>{{ journal.date }}</strong></p>
     <h1>{{ journal.title }}</h1>
-    <p><strong>Date:</strong> {{ journal.date }}</p>
     <p>{{ journal.entry }}</p>
 
-    <div class="journal-actions">
+    <div class="actions">
         <a href="{% url 'update-journal' journal.id %}" class="btn edit">Edit</a>
         <form action="{% url 'delete-journal' journal.id %}" method="post">
             {% csrf_token %}

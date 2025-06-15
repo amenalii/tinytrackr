@@ -320,3 +320,75 @@ li.journal-entry a:hover {
   box-shadow: 0 0 32px #ee9ca7;
   color: #e75480;
 }
+
+.journal-container h1 {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #e75480;
+  letter-spacing: 1.5px;
+}
+
+.journal-container p {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 18px;
+}
+  
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+}  
+   
+.actions .btn {
+  padding: 12px 32px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.3s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 12px #e75480a0;
+  background-image: linear-gradient(to right, #ee9ca7db 0%, #ffdde1de 51%, #ee9ca7 100%);
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.actions .btn.edit,
+.actions .btn.cancel {
+  background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 100%);
+  color: #e75480;
+  box-shadow: 0 2px 12px #a1c4fd80;
+}
+
+.actions .btn.delete {
+  background-image: linear-gradient(to right, #e75480 0%, #ffdde1 100%);
+  color: #fff;
+  box-shadow: 0 2px 12px #e7548080;
+}
+
+.actions .btn:hover {
+  background-position: right center;
+  color: #fff;
+  box-shadow: 0 0 24px #ee9ca7;
+}
+
+.delete-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid 10px #fff;
+  border-radius: 50px;
+  padding: 75px;
+  background-color: rgba(255, 255, 255, 0.1);
+  max-width: 600px;
+  margin: auto;
+  margin-top: 50px;
+}
