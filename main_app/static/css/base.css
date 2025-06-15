@@ -18,8 +18,6 @@ header {
 .logo img {
   height: 120px;
   width: auto;
-  margin-right: 0;
-  margin-left: 0;
   display: block;
 }
 
@@ -57,7 +55,7 @@ nav ul li button,
   color: white;
   box-shadow: 0 0 10px #eee;
   border-radius: 8px;
-  display: inline-block;
+  display: block;
   border: none;
   font-size: 0.8rem;
   cursor: pointer;
@@ -67,7 +65,7 @@ nav ul li a:hover,
 nav ul li button:hover,
 #logout-form button:hover {
   background-position: right center;
-  color: #fff;
+  color: #e75480;;
   text-decoration: none;
   box-shadow: 0 0 20px #ee9ca7;
 }
@@ -100,10 +98,7 @@ nav ul li button:hover,
 }
 
 .btn-grad {
-  background-image: linear-gradient(to right, #ee9ca7db 0%, #ffdde1de 51%, #ee9ca7 100%)
-}
-
-.btn-grad {
+  background-image: linear-gradient(to right, #ee9ca7db 0%, #ffdde1de 51%, #ee9ca7 100%);
   margin: 10px;
   padding: 15px 45px;
   text-align: center;
@@ -132,7 +127,6 @@ nav ul li button:hover,
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100% vw;
   border: solid 10px #fff;
   border-radius: 50px;
   padding: 75px;
@@ -218,4 +212,111 @@ nav ul li button:hover,
 .form-header h1,
 .form-header p {
   margin: 0;
+}
+
+.journal-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.journal-header h1 {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.journal-container {
+  background: rgba(255,255,255,0.2);
+  border-radius: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 32px 32px 24px 32px;
+  max-height: 600px; /* Need to set maximum height to allow for scrollinh*/
+  overflow-y: auto; /* Allows scrolling */
+  box-shadow: 0 2px 8px 0 rgba(148, 187, 233, 0.10);
+}
+
+.journal-container .journal-list-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+  width: 100%;
+}
+
+ul.journal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+  padding: 0 16px
+}
+
+li.journal-entry {
+  background: rgba(255,255,255,0.13);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px 0 rgba(148, 187, 233, 0.10);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+li.journal-entry a {
+  color: #e75480;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+li.journal-entry a:hover {
+  color: white;
+}
+
+.journal-date {
+  font-size: 1.1em;
+  margin-left: 24px;
+  min-width: 100px;
+  text-align: right;
+}
+
+.add-journal-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.add-journal-btn a {
+  background-image: linear-gradient(to right, #ee9ca7db 0%, #ffdde1de 51%, #ee9ca7 100%);
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 36px;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 2px 16px #e75480a0;
+  transition: background-position 0.5s, box-shadow 0.3s, color 0.2s;
+  background-size: 200% auto;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  border: none;
+  outline: none;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.add-journal-btn a:hover {
+  background-position: right center;
+  box-shadow: 0 0 32px #ee9ca7;
+  color: #e75480;
 }
