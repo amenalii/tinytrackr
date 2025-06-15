@@ -15,7 +15,7 @@ header {
   padding: 0px 32px 0px 0px;
 }
 
-.logo img{
+.logo img {
   height: 120px;
   width: auto;
   margin-right: 0;
@@ -126,7 +126,10 @@ nav ul li button:hover,
   text-decoration: none;
 }
 
-.auth-forms {
+.auth-forms,
+.child-form,
+.journal-form,
+.edit-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -141,17 +144,29 @@ nav ul li button:hover,
   margin-top: 50px;
 }
 
-.auth-forms input {
+.auth-forms input,
+.auth-forms textarea,
+.child-form input,
+.child-form textarea,
+.journal-form input,
+.journal-form textarea,
+.edit-form input,
+.edit-form textarea {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
   border: none;
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.2);
-  color: white;
+  font-family: inherit;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 
-.auth-forms button {
+.auth-forms button,
+.child-form button,
+.journal-form button,
+.edit-form button {
   width: 100%;
   padding: 10px;
   border: none;
@@ -175,7 +190,10 @@ nav ul li button:hover,
   text-decoration: underline;
 }
 
-.auth-forms label {
+.auth-forms label,
+.child-form label,
+.journal-form label,
+.edit-form label {
   font-weight: bold;
   color: white;
   display: block;
