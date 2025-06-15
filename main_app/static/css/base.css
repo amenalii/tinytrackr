@@ -392,3 +392,97 @@ li.journal-entry a:hover {
   margin: auto;
   margin-top: 50px;
 }
+
+.dashboard-container {
+  max-width: 1600px;
+  margin: auto;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: auto;
+}
+
+.dashboard-container p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.add-child-button {
+  margin-bottom: 32px;
+}
+
+.add-child-button .btn-grad {
+  font-size: 1.1rem;
+  padding: 14px 40px;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px #e75480a0;
+  letter-spacing: 2px;
+  font-weight: 900;
+  position: relative;
+  background-image: linear-gradient(to right, #ee9ca7db 0%, #ffdde1de 51%, #ee9ca7 100%);
+  color: #fff;
+  text-transform: uppercase;
+  transition: background-position 0.5s, box-shadow 0.3s, color 0.2s;
+  background-size: 200% auto;
+  border: none;
+  outline: none;
+  display: inline-block;
+}
+
+.add-child-button .btn-grad:hover {
+  background-position: right center;
+  box-shadow: 0 0 32px #ee9ca7;
+  color: #e75480;
+}
+
+.children-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.child-card {
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255,255,255,0.2);
+  border-radius: 24px;
+  box-shadow: 0 4px 24px 0 rgba(148, 187, 233, 0.18);
+  padding: 32px 36px 24px 36px;
+  width: 240px; 
+  display: flex;
+  transition: transform 0.18s, box-shadow 0.18s;
+  border: 1.5px solid rgba(231, 84, 128, 0.12);
+  color: #fff;
+  text-align: center;
+}
+
+.child-card:hover {
+  transform: translateY(-5px) scale(1.1); /* translateY adds a lift effect on hover...+ lifts down and - lifts up, scale makes card appear bigger */ 
+  box-shadow: 0 8px 32px 0 #e75480a0;
+}
+
+.child-card .child-name {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #e75480;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.child-card .child-age {
+  font-size: 1rem;
+  color: #fffefed4;
+  margin-bottom: 8px;
+}
+
+.children-container a {
+  text-decoration: none;
+  color: inherit;
+}

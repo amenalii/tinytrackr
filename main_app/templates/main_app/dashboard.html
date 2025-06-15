@@ -1,49 +1,33 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} 
+{% load static %} 
 {% block content %}
-<div class="dashboard-container">
-    <h1> Welcome {{ user.username }} </h1>
-    <p>Here you can manage your children and their milestones.</p>
-    <div class="add-child-button">
-        <a href="{% url 'add-child' %}" class="btn add-child"> New Kiddo </a>
-    </div>
-    <div class="children-container">
-        {% if children %}
-            <ul>
-                {% for child in children %}
-                <a href="{% url 'child-detail' child.id %}">
-                    <li>
-                        {{ child.name }} - 
-                            {% if child.age == 1 %} 
-                                {{ child.age }} year old
-                            {% else %} 
-                                {{ child.age }} years old
-                            {% endif %}
-                    </li>
-                </a>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>No children found.</p>
-        {% endif %}
-    </div>
 
-    <div class="journal-container">
-        <h3>Journal</h3>
-        <div class="add-journal-button">
-            <a href="{% url 'add-journal' %}" class="btn add-journal"> New Journal Entry </a>
+<div class="dashboard-container">
+  <h1 class="welcome">Welcome {{ user.username }}</h1>
+  <p>Manage your children and their daily activities here.</p>
+
+  
+  <div class="children-container">
+      {% if children %} 
+        {% for child in children %}
+        <a href="{% url 'child-detail' child.id %}">
+            <div class="child-card">
+                <div class="child-name">{{ child.name }}</div>
+                <div class="child-age">
+                    {% if child.age == 1 %} 
+                    {{ child.age }} year old 
+                    {% else %} 
+                    {{child.age }} years old 
+                    {% endif %}
+                </div>
+            </div>
+        </a>
+        {% endfor %} 
+      {% else %}
+        <div class="add-child-button">
+          <a href="{% url 'add-child' %}" class="btn-grad">New Kiddo</a>
         </div>
-        {% if journal_entries %}
-            <ul>
-                {% for entry in journal_entries %}
-                <li>
-                    <a href="{% url 'journal-detail' entry.id %}">{{ entry.title }}</a>
-                </li>
-                {% endfor %}
-            </ul>
-        {% else %}
-            <p>Jot down your daily thoughts</p>
-        {% endif %}
-    </div>
+    {% endif %}
+  </div>
 </div>
 {% endblock %}
