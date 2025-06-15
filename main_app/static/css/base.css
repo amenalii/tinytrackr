@@ -8,6 +8,72 @@ body {
   color: white
 }
 
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 32px 0px 0px;
+}
+
+.logo img{
+  height: 120px;
+  width: auto;
+  margin-right: 0;
+  margin-left: 0;
+  display: block;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: rgba(255, 255, 255, 0.328);
+  border-radius: 25px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 10px;
+}
+
+nav ul li {
+  margin: 0 20px;
+  padding: 0;
+  font-size: 1rem;
+}
+
+nav ul li a,
+nav ul li button,
+#logout-form button {
+  background-image: linear-gradient(to right, #ee9ca7db 0%, #ffdde1de 51%, #ee9ca7 100%);
+  margin: 0 6px;
+  padding: 10px 28px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 10px #eee;
+  border-radius: 8px;
+  display: inline-block;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+nav ul li a:hover,
+nav ul li button:hover,
+#logout-form button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 0 20px #ee9ca7;
+}
+
 .home-container {
   display: flex;
   flex-direction: column;
